@@ -196,12 +196,14 @@ async def status_of_internship(
     from datetime import datetime
     
     try:
-
+        if not puch_image_data:
+            raise McpError(ErrorData(code=INVALID_PARAMS, message="No image data provided"))
+            
 
         try:
 
             # Return the prediction result
-            return [TextContent(type="text", text="There is some issue generating your internship status .please contact the admin")]
+            return [TextContent(type="text", text="There is some issue generating your internship status .Server connection failed")]
             
         except Exception as e:
             # Clean up the file if there was an error
@@ -220,5 +222,4 @@ async def main():
     await mcp.run_async("streamable-http", host="0.0.0.0", port=8086)
 
 if __name__ == "__main__":
-
     asyncio.run(main())
