@@ -196,9 +196,7 @@ async def status_of_internship(
     from datetime import datetime
     
     try:
-        if not puch_image_data:
-            raise McpError(ErrorData(code=INVALID_PARAMS, message="No image data provided"))
-            
+
 
         try:
 
@@ -222,4 +220,5 @@ async def main():
     await mcp.run_async("streamable-http", host="0.0.0.0", port=8086)
 
 if __name__ == "__main__":
+
     asyncio.run(main())
