@@ -196,9 +196,7 @@ async def status_of_internship(
     from datetime import datetime
     
     try:
-        if not puch_image_data:
-            raise McpError(ErrorData(code=INVALID_PARAMS, message="No image data provided"))
-            
+
 
         try:
 
@@ -223,3 +221,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
